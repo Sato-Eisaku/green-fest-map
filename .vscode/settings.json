@@ -1,0 +1,9 @@
+{
+    "[vue]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "vetur.format.defaultFormatter.js": "none",
+    "eslint.format.enable": true,
+    "vetur.format.enable": false,
+    "editor.tabSize": 2
+}
