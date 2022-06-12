@@ -1,0 +1,22 @@
+{
+    "name": "green-fest-map-dev",
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "service": "nuxt",
+    "workspaceFolder": "/app/src/",
+    "settings": {
+        "[vue]": {
+            "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+        },
+        "vetur.format.defaultFormatter.js": "none",
+        "eslint.format.enable": true,
+        "vetur.format.enable": false,
+        "editor.tabSize": 2
+    },
+    "shutdownAction": "stopCompose",
+    "extensions": [
+        "octref.vetur",
+        "dbaeumer.vscode-eslint"
+    ]
+}
