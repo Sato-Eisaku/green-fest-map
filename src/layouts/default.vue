@@ -1,4 +1,5 @@
 <template>
+  <!-- アプリ全体をダークモードにする -->
   <v-app dark>
     <v-app-bar
       color="light-green"
@@ -7,10 +8,20 @@
       collapse-on-scroll
       app
     >
+      <!-- グリッドレイアウトに挑戦 -->
       <v-container>
+        <!-- 上下を中央揃えに -->
         <v-row class="align-center">
-          <v-col cols="1"><v-app-bar-nav-icon @click="drawer = true" /></v-col>
-          <v-col cols="10"><v-toolbar-title class="flex text-center">緑丘祭非公式アプリ</v-toolbar-title></v-col>
+          <!-- ハンバーガーアイコンを左寄せにしたい（できなかった） -->
+          <v-col cols="1">
+            <v-app-bar-nav-icon @click="drawer = true" />
+          </v-col>
+          <v-col cols="10">
+            <v-toolbar-title class="flex text-center">
+              緑丘祭非公式アプリ
+            </v-toolbar-title>
+          </v-col>
+          <!-- タイトルを中央にするため、右にも1マス -->
           <v-col cols="1" />
         </v-row>
       </v-container>
@@ -20,6 +31,7 @@
         <Nuxt />
       </v-container>
     </v-main>
+    <!-- ハンバーガーメニューの中身 -->
     <v-navigation-drawer
       v-model="drawer"
       absolute
@@ -34,49 +46,16 @@
           v-model="group"
           active-class="deep-purple--text text--accent-4"
         >
-          <v-list-item>
+          <!-- 各メニューをループで作成 -->
+          <v-list-item v-for="item in naviItems" :key="item.title">
             <v-list-item-icon>
-              <v-icon>mdi-map-search</v-icon>
+              <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>マップ</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-store-search</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>出店情報</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-calendar-search</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>イベント</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-twitter</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>公式Twitter</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-instagram</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>公式Instagram</v-list-item-title>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
   </v-app>
 </template>
 
@@ -85,25 +64,30 @@ export default {
   name: 'DefaultLayout',
   data () {
     return {
-      clipped: false,
       drawer: false,
-      fixed: false,
-      items: [
+      group: null,
+      naviItems: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
+          icon: 'mdi-map-search',
+          title: 'マップ'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: 'mdi-store-search',
+          title: '出店情報'
+        },
+        {
+          icon: 'mdi-calendar-search',
+          title: 'イベント'
+        },
+        {
+          icon: 'mdi-twitter',
+          title: '公式Twitter'
+        },
+        {
+          icon: 'mdi-instagram',
+          title: '公式Instagram'
         }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      ]
     }
   }
 }
