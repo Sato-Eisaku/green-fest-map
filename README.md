@@ -29,5 +29,5 @@
 [MIT](LICENSE)
 
 ## Authors
-[Sato-Eisaku](https://github.com/Sato-Eisaku)
+[Sato-Eisaku](https://github.com/Sato-Eisaku)  
 [himantyu-yuma](https://github.com/himantyu-yuma)
