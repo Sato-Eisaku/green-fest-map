@@ -33,6 +33,13 @@
           active-class="deep-purple--text text--accent-4"
         >
           <!-- 各メニューをループで作成 -->
+          <v-list-item @click="drawer = false">
+            <v-list-item-action>
+              <v-list-item-icon>
+                <v-icon>mdi-menu</v-icon>
+              </v-list-item-icon>
+            </v-list-item-action>
+          </v-list-item>
           <v-list-item v-for="item in naviItems" :key="item.title">
             <v-list-item-icon>
               <v-icon>{{ item.icon }}</v-icon>
