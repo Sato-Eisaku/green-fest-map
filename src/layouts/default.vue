@@ -8,23 +8,11 @@
       collapse-on-scroll
       app
     >
-      <!-- グリッドレイアウトに挑戦 -->
-      <v-container>
-        <!-- 上下を中央揃えに -->
-        <v-row class="align-center">
-          <!-- ハンバーガーアイコンを左寄せにしたい（できなかった） -->
-          <v-col cols="1">
-            <v-app-bar-nav-icon @click="drawer = true" />
-          </v-col>
-          <v-col cols="10">
-            <v-toolbar-title class="flex text-center">
-              緑丘祭非公式アプリ
-            </v-toolbar-title>
-          </v-col>
-          <!-- タイトルを中央にするため、右にも1マス -->
-          <v-col cols="1" />
-        </v-row>
-      </v-container>
+      <v-app-bar-nav-icon @click="drawer = true" />
+      <v-toolbar-title class="flex text-center">
+        緑丘祭非公式アプリ
+      </v-toolbar-title>
+      <v-app-bar-nav-icon style="visibility:hidden;" />
     </v-app-bar>
     <v-main>
       <Nuxt />
