@@ -1,0 +1,25 @@
+version: '3'
+
+volumes:
+  node_modules:
+  nuxt:
+services:
+  nuxt:
+    build:
+      context: .
+      target: development
+    restart: always
+    ports:
+      - 3001:3000
+    volumes:
+      - type: volume
+        source: node_modules
+        target: /app/src/node_modules
+      - type: volume
+        source: nuxt
+        target: /app/src/.nuxt
+      - type: bind
+        source: ./src
+        target: /app/src
+    stdin_open: true
+    tty: true
