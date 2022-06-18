@@ -27,9 +27,7 @@
       </v-container>
     </v-app-bar>
     <v-main>
-      <v-container>
-        <Nuxt />
-      </v-container>
+      <Nuxt />
     </v-main>
     <!-- ハンバーガーメニューの中身 -->
     <v-navigation-drawer
