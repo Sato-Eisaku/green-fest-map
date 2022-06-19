@@ -5,7 +5,6 @@
       color="light-green"
       dark
       dence
-      collapse-on-scroll
       app
     >
       <v-app-bar-nav-icon @click="drawer = true" />
