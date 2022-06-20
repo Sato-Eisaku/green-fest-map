@@ -23,23 +23,31 @@
       light
       temporary
     >
-      <v-list
-        nav
-        dense
-      >
+      <v-list nav>
         <v-list-item-group
           v-model="group"
           active-class="deep-purple--text text--accent-4"
         >
           <!-- 各メニューをループで作成 -->
-          <v-list-item @click="drawer = false">
+          <v-list-item
+            dense
+            @click="drawer = false"
+          >
             <v-list-item-action>
               <v-list-item-icon>
                 <v-icon>mdi-menu</v-icon>
               </v-list-item-icon>
             </v-list-item-action>
           </v-list-item>
-          <v-list-item v-for="item in naviItems" :key="item.title">
+          <v-divider />
+          <!-- for文でメニューの要素を作成 -->
+          <!-- メニューの要素をタップすると、ページ遷移が起こりかつメニューを閉じるように -->
+          <v-list-item
+            v-for="item in naviItems"
+            :key="item.title"
+            :to="item.toPage"
+            @click="drawer = false"
+          >
             <v-list-item-icon>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-icon>
@@ -60,22 +68,27 @@ export default {
       group: null,
       naviItems: [
         {
+          toPage: 'map',
           icon: 'mdi-map-search',
           title: 'マップ'
         },
         {
+          toPage: 'shop',
           icon: 'mdi-store-search',
           title: '出店情報'
         },
         {
+          toPage: 'event',
           icon: 'mdi-calendar-search',
           title: 'イベント'
         },
         {
+          toPage: 'twitter',
           icon: 'mdi-twitter',
           title: '公式Twitter'
         },
         {
+          toPage: 'instagram',
           icon: 'mdi-instagram',
           title: '公式Instagram'
         }
